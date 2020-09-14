@@ -2,16 +2,14 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./styles.css";
 import Footer from "./Footer";
-import Search from "./Search";
-import Weather from "./Weather";
+import WeatherSearch from "./WeatherSearch";
 import Forecast from "./Forecast";
 
 export default function App() {
   return (
     <div className="weather-app">
       <div className="container">
-        <Search />
-        <Weather value="21" />
+        <WeatherSearch city="New York" />
         <Forecast />
       </div>
       <Footer />

@@ -8,9 +8,16 @@ export default function Footer() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Open source code
+        Open source code {""}
       </a>
-      by Laura Dumitru
+      by {""}{" "}
+      <a
+        href="https://www.linkedin.com/in/laura-dumitru-923248137/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Laura Dumitru
+      </a>
     </small>
   );
 }
