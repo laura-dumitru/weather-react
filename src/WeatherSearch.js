@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
+import WeatherTemperature from "./WeatherTemperature";
+import FormattedDate from "./FormattedDate";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function WeatherSearch(props) {
-  const [city, setCity] = useState(props.city);
-  const [weather, setWeather] = useState({ ready: false });
+  const [weather, setWeather] = useState({ ready: false, city: props.city });
 
   const apiKey = "e3dda97cfe9d9fc23a4b5fa7130913b1";
-  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let url = `http://api.openweathermap.org/data/2.5/weather?q=${weather.city}&appid=${apiKey}&units=metric`;
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -16,15 +17,14 @@ export default function WeatherSearch(props) {
   }
 
   function updateCity(event) {
-    setCity(event.target.value);
+    url = `http://api.openweathermap.org/data/2.5/weather?q=${event.target.value}&appid=${apiKey}&units=metric`;
   }
 
   function handleResponse(response) {
-    //console.log(response.data);
     setWeather({
       ready: true,
-      date: "Wednesday 07:00",
-      //city: response.data.name,
+      date: new Date(response.data.dt * 1000),
+      city: response.data.name,
       description: response.data.weather[0].description,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
@@ -58,17 +58,16 @@ export default function WeatherSearch(props) {
     return (
       <div>
         {form}
-
         <div className="row">
           <div className="col-6">
-            <h1 id="city">{city}</h1>
-
+            <h1 id="city">{weather.city}</h1>
             <ul>
-              <li className="date">{weather.date}</li>
+              <li className="date">
+                <FormattedDate date={weather.date} />
+              </li>
             </ul>
             <ul>
               <li id="description">{weather.description}</li>
-
               <li>
                 Humidity: <span id="humidity">{weather.humidity}%</span>
               </li>
@@ -77,14 +76,7 @@ export default function WeatherSearch(props) {
               </li>
             </ul>
             <br />
-            <div className="temperature">
-              <strong id="temperature">
-                {Math.round(weather.temperature)}
-              </strong>
-              <small>
-                <span id="celsius">˚C</span>|<span id="fahrenheit">˚F</span>
-              </small>
-            </div>
+            <WeatherTemperature celsius={weather.temperature} />
           </div>
 
           <div className="col-6">
