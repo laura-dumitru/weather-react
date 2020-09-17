@@ -16,6 +16,8 @@ export default function WeatherSearch(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
+    let inputCity = document.querySelector("#inputCity");
+    inputCity.value = "";
     axios.get(url).then(handleResponse);
   }
 
