@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import WeatherTemperature from "./WeatherTemperature";
 import Forecast from "./Forecast";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
-import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function WeatherSearch(props) {
   const [weather, setWeather] = useState({ ready: false, city: props.city });
@@ -35,6 +36,17 @@ export default function WeatherSearch(props) {
     });
   }
 
+  function updatePosition(position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    url = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+    axios.get(url).then(handleResponse);
+  }
+
+  function getLocation() {
+    navigator.geolocation.getCurrentPosition(updatePosition);
+  }
+
   let form = (
     <form className="row" id="search-form" onSubmit={handleSubmit}>
       <div className="form-group col-6">
@@ -50,7 +62,11 @@ export default function WeatherSearch(props) {
       </div>
       <input type="submit" value="Search" className="btn" />
 
-      <button type="button" className="btn location col-1">
+      <button
+        type="button"
+        className="btn location col-1"
+        onClick={getLocation}
+      >
         <FontAwesomeIcon icon={faMapMarkerAlt} className="fas" />
       </button>
     </form>
