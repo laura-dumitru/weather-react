@@ -8,7 +8,7 @@
 }
 .container {
   font-family: "Alice", serif;
-  padding: 16px;
+  padding: 25px;
   margin-top: 16px;
   max-width: 640px;
   border-radius: 16px;
@@ -21,11 +21,11 @@
 
 .card {
   color: white;
-  margin: 80px 20px 20px;
+  margin: 60px 20px 20px;
   border-radius: 12px;
   border: none;
   background-color: white;
-  color: black;
+  color: #3f3f44;
 }
 .card-body {
   padding: 40px;
@@ -83,7 +83,7 @@ small {
   width: 100px;
   margin: 0 8px;
   color: #3f3f44;
-  background-color: pink;
+  background-color: #fcb69f;
 }
 
 .btn#sun {
@@ -128,13 +128,16 @@ small {
   background-color: #b2ace2;
 }
 
-.main-icon {
-  margin: 32px 16px 0 0;
+.container .row > img {
+  margin-top: 16px;
+  max-width: 256px;
+  max-height: 288px;
 }
+
 .card-body img {
   height: 64px;
-  margin: 8px 0;
-  vertical-align: top;
+  max-width: 64px;
+  margin: 12px 0;
 }
 
 a {
@@ -143,7 +146,7 @@ a {
   text-decoration: underline;
 }
 a:hover {
-  color: inherit;
+  color: #fcb69f;
 }
 
 .coded {
@@ -175,10 +178,6 @@ a:hover {
   }
   .weather-app {
     max-height: 260px;
-  }
-
-  .main-icon {
-    margin-top: 48px;
   }
 
   .card-body .col-2 {

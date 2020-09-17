@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherTemperature from "./WeatherTemperature";
+import Forecast from "./Forecast";
 import FormattedDate from "./FormattedDate";
+import WeatherIcon from "./WeatherIcon";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -29,7 +31,7 @@ export default function WeatherSearch(props) {
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
-      icon: `https://raw.githubusercontent.com/laura-dumitru/Weather-App/master/img/${response.data.weather[0].icon}.svg`,
+      icon: response.data.weather[0].icon,
     });
   }
 
@@ -78,11 +80,9 @@ export default function WeatherSearch(props) {
             <br />
             <WeatherTemperature celsius={weather.temperature} />
           </div>
-
-          <div className="col-6">
-            <img className="main-icon" src={weather.icon} alt="icon" />
-          </div>
+          <WeatherIcon icon={weather.icon} />
         </div>
+        <Forecast city={weather.city} />
       </div>
     );
   } else {
