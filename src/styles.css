@@ -8,11 +8,11 @@
 }
 .container {
   font-family: "Alice", serif;
-  padding: 25px;
   margin-top: 16px;
+  padding: 32px;
   max-width: 640px;
   border-radius: 16px;
-  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
 }
 
 .form-control {
@@ -21,14 +21,14 @@
 
 .card {
   color: white;
-  margin: 60px 20px 20px;
+  margin-top: 32px;
   border-radius: 12px;
   border: none;
   background-color: white;
   color: #3f3f44;
 }
 .card-body {
-  padding: 40px;
+  padding: 32px;
   font-size: 20px;
   text-align: center;
 }
@@ -44,16 +44,13 @@
 }
 h1 {
   font-size: 30px;
-  margin-bottom: 0;
 }
-h3 {
+h3,
+li {
   font-size: 18px;
 }
 li {
-  font-size: 18px;
   list-style: none;
-  margin: 0;
-  padding: 0;
 }
 ul {
   margin: 0;
@@ -62,7 +59,7 @@ ul {
 
 .temperature {
   position: relative;
-  top: -26px;
+  top: -24px;
   font-size: 60px;
 }
 
@@ -80,52 +77,12 @@ small {
   height: calc(1.5em + 0.75rem + 2px);
   transition: all 200ms ease-in-out;
   border: none;
-  width: 100px;
-  margin: 0 8px;
+  margin-right: 15px;
   color: #3f3f44;
-  background-color: #fcb69f;
+  background-color: #4facfe;
 }
-
-.btn#sun {
-  background-color: #b7b7e5;
-}
-.btn#sun:hover {
-  background-color: #a9c2eb;
-}
-
-.btn#cloud {
-  background-color: #c5d0e3;
-}
-.btn#cloud:hover {
-  background-color: #d9e2ed;
-}
-
-.btn#rain {
-  background-color: #97aad0;
-}
-.btn#rain:hover {
-  background-color: #b6c5da;
-}
-
-.btn#snow {
-  background-color: #eaedef;
-}
-.btn#snow:hover {
-  background-color: #dfebf0;
-}
-
-.btn#storm {
-  background-color: #d1e4fd;
-}
-.btn#storm:hover {
-  background-color: #ddeafb;
-}
-
-.btn#night {
-  background-color: #8082c0;
-}
-.btn#night:hover {
-  background-color: #b2ace2;
+.btn:hover {
+  background-color: #00f2fe;
 }
 
 .container .row > img {
@@ -146,7 +103,7 @@ a {
   text-decoration: underline;
 }
 a:hover {
-  color: #fcb69f;
+  color: #00f2fe;
 }
 
 .coded {
@@ -154,9 +111,6 @@ a:hover {
   display: block;
   text-align: center;
   font-size: 16px;
-}
-#rainbow {
-  width: 48px;
 }
 
 #humidity,
@@ -170,41 +124,35 @@ a:hover {
 @media (max-width: 480px) {
   .container {
     font-size: x-small;
-    padding: 0;
-    padding-bottom: 4px;
-    margin-bottom: 16px;
+    padding: 16px;
     margin-top: 0;
     border-radius: 0;
   }
-  .weather-app {
-    max-height: 260px;
+
+  .btn {
+    max-width: 72px;
   }
 
-  .card-body .col-2 {
-    padding: 0 8px;
+  .container .row > img {
+    margin: 0;
+    position: relative;
+    left: -16px;
+    width: 50%;
   }
 
+  .card {
+    border-radius: 8px;
+  }
   .card-body {
     padding: 16px;
+    font-size: 16px;
   }
-
-  .card-body h3 {
-    font-size: 12px;
-  }
-  .weather-forecast-temperature {
-    font-size: 12px;
-    padding-top: 0;
-  }
-
   .card-body img {
-    width: 40px;
+    max-width: 40px;
     margin: 0;
     vertical-align: top;
   }
-  .btn {
-    max-width: 70px;
-  }
-  .card {
-    border-radius: 8px;
+  .card-body .col-2 {
+    padding: 0;
   }
 }
