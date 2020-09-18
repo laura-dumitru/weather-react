@@ -5,13 +5,15 @@ import WeatherForecastPreview from "./WeatherForecastPreview";
 export default function Forecast(props) {
   const [loaded, setLoaded] = useState(false);
   const [forecast, setForecast] = useState(null);
+  const [lastSearch, setLastSearch] = useState("");
 
   function handleForecastResponse(response) {
     setForecast(response.data);
     setLoaded(true);
+    setLastSearch(props.city);
   }
 
-  if (loaded && props.city === forecast.city.name) {
+  if (loaded && props.city === lastSearch) {
     return (
       <div className="card">
         <div className="card-body">
