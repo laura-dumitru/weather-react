@@ -12,7 +12,7 @@ export default function WeatherSearch(props) {
   const [weather, setWeather] = useState({ ready: false, city: props.city });
 
   const apiKey = "e3dda97cfe9d9fc23a4b5fa7130913b1";
-  let url = `http://api.openweathermap.org/data/2.5/weather?q=${weather.city}&appid=${apiKey}&units=metric`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${weather.city}&appid=${apiKey}&units=metric`;
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -22,7 +22,7 @@ export default function WeatherSearch(props) {
   }
 
   function updateCity(event) {
-    url = `http://api.openweathermap.org/data/2.5/weather?q=${event.target.value}&appid=${apiKey}&units=metric`;
+    url = `https://api.openweathermap.org/data/2.5/weather?q=${event.target.value}&appid=${apiKey}&units=metric`;
   }
 
   function handleResponse(response) {
@@ -41,7 +41,7 @@ export default function WeatherSearch(props) {
   function updatePosition(position) {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
-    url = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+    url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
     axios.get(url).then(handleResponse);
   }
 
