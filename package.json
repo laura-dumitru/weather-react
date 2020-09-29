@@ -2,6 +2,7 @@
   "name": "weather-react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://laura-dumitru.github.io/weather-react",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
@@ -17,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && mv build docs",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
