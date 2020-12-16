@@ -87,6 +87,7 @@ small {
 
 .container .row > img {
   margin-top: 16px;
+  width: 100%;
   max-width: 256px;
   max-height: 288px;
 }
