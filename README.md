@@ -1,3 +1,16 @@
+# React Weather App
+
+This project is a **weather app** which displays the current weather and forecast for the rest of the day. It uses an API from [OpenWeatherMap](openweathermap.org).
+The icon changes according to the forecast and time of day. It features a range of uniquely designed weather icons and was built with React.  
+Technologies learned: **HTML, CSS, JavaScript, React, API, Geolocation API and Bootstrap**. 
+
+How to use: 
+* `npm start` in terminal
+* Input city in the _Search bar_ and press _Search_
+* Press _Location_ button to get the weather forecast in your current location
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
