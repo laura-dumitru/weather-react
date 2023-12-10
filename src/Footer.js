@@ -12,7 +12,7 @@ export default function Footer() {
       </a>
       by {""}{" "}
       <a
-        href="https://www.linkedin.com/in/laura-d-923248137/"
+        href="https://github.com/laura-dumitru"
         target="_blank"
         rel="noopener noreferrer"
       >
